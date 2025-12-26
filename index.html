@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Call Align | Enterprise Call Center Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#020617',
+                light: '#0f172a',
+              },
+              accent: {
+                DEFAULT: '#14b8a6',
+                hover: '#0d9488',
+                bright: '#2dd4bf',
+                glow: 'rgba(20, 184, 166, 0.5)'
+              }
+            },
+            fontFamily: {
+              heading: ['Inter', 'system-ui', 'sans-serif'],
+              body: ['Roboto', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'marquee': 'marquee 40s linear infinite',
+              'float': 'float 8s ease-in-out infinite',
+              'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+              'spin-slow': 'spin 25s linear infinite',
+              'reveal-3d': 'reveal3D 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px) rotate3d(1, 1, 0, 0deg)' },
+                '50%': { transform: 'translateY(-30px) rotate3d(1, 1, 0, 3deg)' },
+              },
+              pulseGlow: {
+                '0%, 100%': { opacity: '0.3', filter: 'blur(60px)' },
+                '50%': { opacity: '0.6', filter: 'blur(90px)' },
+              },
+              reveal3D: {
+                '0%': { transform: 'translateY(150px) rotateX(-60deg) scale(0.8)', opacity: '0' },
+                '100%': { transform: 'translateY(0) rotateX(0) scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --perspective: 1500px;
+      }
+      .perspective-deep { perspective: var(--perspective); }
+      .preserve-3d { transform-style: preserve-3d; }
+      .backface-hidden { backface-visibility: hidden; }
+      
+      .glass-card {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .dark .glass-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.4) 0%, rgba(2, 6, 23, 0.2) 100%);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .hover-3d {
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      .hover-3d:hover {
+        transform: rotateX(10deg) rotateY(-10deg) translateZ(50px);
+      }
+
+      .translate-z-10 { transform: translateZ(10px); }
+      .translate-z-20 { transform: translateZ(20px); }
+      .translate-z-40 { transform: translateZ(40px); }
+      .translate-z-60 { transform: translateZ(60px); }
+      .translate-z-100 { transform: translateZ(100px); }
+      .translate-z-negative-100 { transform: translateZ(-100px); }
+
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(60px) rotateX(-15deg);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+      }
+
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      .dark ::-webkit-scrollbar-track { background: #020617; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+      .dark ::-webkit-scrollbar-thumb { background: #1e293b; }
+      ::-webkit-scrollbar-thumb:hover { background: #14b8a6; }
+      
+      .text-shadow-glow {
+        text-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+      }
+
+      body {
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+      * {
+        transition: border-color 0.3s ease;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react-hook-form": "https://esm.sh/react-hook-form@^7.69.0",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-slate-100 transition-colors duration-500 selection:bg-accent/40 overflow-x-hidden">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
